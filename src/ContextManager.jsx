@@ -4,7 +4,7 @@ import APIFetching from "./APIFetching";
 const context = createContext();
 const ContextManager = (props) => {
     //fetching api
-    const [, mainData,] = APIFetching("http://localhost:4000/login");
+    const [, mainData,] = APIFetching("https://loginauthentications.herokuapp.com/login?apikey="rdxlogin9811");
 
     // used in Login page
     const [formData, setFormData] = useState({});
