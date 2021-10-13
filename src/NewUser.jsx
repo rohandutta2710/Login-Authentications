@@ -33,7 +33,7 @@ function NewUser() {
             <Navbar></Navbar>
             <div className="form-container">
                 <div className="newUserFormDiv">
-                    <form className="newUserForm" action="http://localhost:4000/login/newuser" method="post" onSubmit={handleNewUserSubmit}>
+                    <form className="newUserForm" action="https://loginauthentications.herokuapp.com/newuser" method="post" onSubmit={handleNewUserSubmit}>
                         <div className="row">
                             <div className="col-6 mb-3">
                                 <input type="text" minLength="3" maxLength="20" className="form-control" placeholder="First name" name="firstName" onChange={handleNewUser} required />

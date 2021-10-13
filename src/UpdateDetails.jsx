@@ -38,7 +38,7 @@ function UpdateDetails() {
             <Navbar />
             <div className="form-container">
                 <div className="form-inner-container">
-                    <form onSubmit={handleUpdateSubmit} action='http://localhost:4000/updatedetails' method="post">
+                    <form onSubmit={handleUpdateSubmit} action='https://loginauthentications.herokuapp.com/updatedetails' method="post">
                         <div className="form-floating mb-3">
                             <input type="email" className="form-control" name="id" placeholder="Username" onChange={updateFormData} style={{ borderColor: usingContext.borderUpdateData.emailBorder }} required />
                             <label htmlFor="floatingInput">Email address</label>

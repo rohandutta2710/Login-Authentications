@@ -35,7 +35,7 @@ function DeleteUser() {
             <Navbar />
             <div className="form-container">
                 <div className="form-inner-container">
-                    <form onSubmit={handleDeleteSubmit} action='http://localhost:4000/deleteuser/' method="post">
+                    <form onSubmit={handleDeleteSubmit} action='https://loginauthentications.herokuapp.com/deleteuser/' method="post">
                         <div className="form-floating mb-3">
                             <input type="email" className="form-control" name="id" placeholder="Enter your username" onChange={DeleteAccount} style={{ borderColor: usingContext.borderDeleteData.emailBorder }} required />
                             <label htmlFor="floatingInput">Email address</label>
