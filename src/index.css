@@ -1,13 +1,107 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  margin: 0px;
+  padding: 0px;
+  background-color: whitesmoke;
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+}
+.navbar-nav{
+  margin-left: auto !important;
+}
+.navbar{
+  background-color: white !important;
+  
+}
+.navbar a{
+  color:black !important;
+}
+.navbar li:hover{
+  border-bottom: 1px solid black;
+}
+.form-container {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form-inner-container {
+  background-color: white ;
+  box-shadow: 1px 1px 10px black;
+  padding: 30px;
+  position: relative;
+  border: 0.01px solid rgb(54, 53, 53);
+  border-radius: 10px;
+  width: 20rem;
+}
+.password-icon{
+  position:relative;
+}
+.password-icon i{
+  position:absolute;
+  z-index:20;
+  right:8px;
+  cursor:pointer;
+  top:10px;
+  color: rgb(70, 69, 69);
+}
+.password-icon-pages i{
+  top: 20px !important;
+  font-size: 18px !important;
+}
+.mb-3 > .form-text {
+  color: red;
+}
+.forgotten-password {
+  text-align: center;
+}
+.forgotten-password a {
+  font-size: 15px;
+  text-decoration: none;
+}
+.forgotten-password a:hover {
+  text-decoration: underline;
+}
+.btn a{
+  color:white ;
+  text-decoration: none;
+}
+.newUserFormDiv {
+  background-color: white ;
+  box-shadow: 1px 1px 10px black;
+  padding: 20px;
+  position: relative;
+  border: 0.01px solid rgb(54, 53, 53);
+  width: 30rem;
+  display: flex;
+  justify-content: center;
+}
+.newUserForm input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="date"] {
+  padding: 8px;
+  outline: none;
+  display: flex;
+  justify-content: center;
+}
+input[type="password"]{
+  padding-right: 35px !important;
+}
+.newUserForm {
+  width: 95%;
+}
+@media only screen and (max-width:1000px){
+  .navbar li:hover{
+    border-bottom:none;
+  }
+}
+@media only screen and (max-width: 419px) {
+  .newUserForm input {
+    font-size: 12px;
+    padding: 5px;
+  }
+  .specific-icon i{
+    top:5px;
+    font-size: 14px;
+  }
 }
