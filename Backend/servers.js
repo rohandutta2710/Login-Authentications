@@ -3,8 +3,9 @@ const bodyParser = require("body-parser")   //most important middlware for  send
 const fs = require('fs');
 const path = require("path")
 const app = express();
-const fileName = "./LoginApi.json";
-const viewPath = path.join(__dirname, "/views");
+const ports=process.env.PORT || 6000;
+const fileName = "./LoginApis.json";
+const viewPath = path.join(__dirname, "./views");
 let jsonData = fs.readFileSync(fileName, "utf-8");
 jsonData = JSON.parse(jsonData);
 
@@ -33,7 +34,7 @@ app.get("/login/:id", (req, res) => {
 })
 
 app.get("/login", (req, res) => {
-    if (req.query.id === undefined) {
+    if (req.query.apikey==="rdxlogin9811") {
         res.json(jsonData);
     }
     else {
@@ -44,7 +45,7 @@ app.get("/login", (req, res) => {
     }
 })
 
-app.post("/login/newuser", (req, res) => {
+app.post("/newuser", (req, res) => {
     clientData = req.body;
     if (clientData.id !== undefined && clientData.password !== undefined && clientData.id.length > 10 && clientData.password.length >= 5 && clientData.id.toLowerCase().endsWith("@gmail.com") && clientData.id.indexOf("@") === clientData.id.lastIndexOf("@")) {
         let data = jsonData.find((val) => {
@@ -64,14 +65,14 @@ app.post("/login/newuser", (req, res) => {
             }
             jsonData.push(data)
             fs.writeFileSync(fileName, JSON.stringify(jsonData))
-            res.render(path.join(viewPath, "/index.hbs"), { serverStatus: "User is added Succesfully." })
+            res.render(path.join(viewPath, "./index.hbs"), { serverStatus: "User is added Succesfully." })
         }
         else {
-            res.status(400).render(path.join(viewPath, "/index.hbs"), { serverStatus: "User Already exists." })
+            res.status(400).render(path.join(viewPath, "./index.hbs"), { serverStatus: "User Already exists." })
         }
     }
     else {
-        res.status(500).render(path.join(viewPath, "/index.hbs"), { serverStatus: "Invalid credential." });
+        res.status(500).render(path.join(viewPath, "./index.hbs"), { serverStatus: "Invalid credential." });
     }
 });
 
@@ -84,7 +85,7 @@ app.post("/updatedetails", (req, res) => {
         if (i.id.toLowerCase() === clientData.id.toLowerCase() && i.phoneno === clientData.phoneno) {
             i.password.push(clientData.newpassword);
             fs.writeFileSync(fileName, JSON.stringify(jsonData));
-            res.render(path.join(viewPath, "/index.hbs"), { serverStatus: "Password is updated." });
+            res.render(path.join(viewPath, "./index.hbs"), { serverStatus: "Password is updated." });
             break;
         }
     }
@@ -98,15 +99,15 @@ app.post("/deleteuser", (req, res) => {
             // delete jsonData[i]; //this will add null to your data
             jsonData.splice(i, 1)
             fs.writeFileSync(fileName, JSON.stringify(jsonData));
-            res.render(path.join(viewPath, "/index.hbs"), { serverStatus: "Account is deleted succesfully." });
+            res.render(path.join(viewPath, "./index.hbs"), { serverStatus: "Account is deleted succesfully." });
             break;
         }
     }
-    res.status(404).render(path.join(viewPath, "/index.hbs"), { serverStatus: "User doesn't exists." });
+    res.status(404).render(path.join(viewPath, "./index.hbs"), { serverStatus: "User doesn't exists." });
 })
 
 
 
-app.listen(4000, "localhost", () => {
+app.listen(ports, () => {
     console.log("Server is running.")
 })
